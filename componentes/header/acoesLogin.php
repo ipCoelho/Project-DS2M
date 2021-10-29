@@ -12,7 +12,7 @@
         // Tests, if the the array is set.
         if(isset($userArray['usuario']) && isset($userArray['senha'])) {
             $_SESSION['usuarioID'] = $userArray['id'];
-            $_SESSION['usuarioNome'] = $userArray['nome'];
+            $_SESSION['usuarioN ome'] = $userArray['nome'];
 
             header('location: ../../produtos/index.php');
         } else {
@@ -28,7 +28,6 @@
             $senha_value = $_POST['senha'];
 
             realizarLogin($usuario_value, $senha_value, $conexao);
-
             /* My Logic -> 
                 // mySQL.
                 $sql = "SELECT * FROM tbl_administrador WHERE usuario = '$usuario_value' AND senha = '$senha_value';";
@@ -40,16 +39,14 @@
                     echo("<script>alert('Autentication True.')</script>");
                 } else {
                     echo("<script>alert('Autentication False.')</script>");
-                }
-            
-            */
+                } */
         break;
 
 
 
         case 'logout':
-
-
+            session_destroy();
+            header('location: ../../produtos/index.php');
         break;
 
 
