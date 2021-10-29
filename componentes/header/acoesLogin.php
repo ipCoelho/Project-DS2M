@@ -10,7 +10,7 @@
         $userArray = mysqli_fetch_array($sqlObject);
 
         // Tests, if the the array is set.
-        if(isset($userArray['usuario']) && isset($userArray['senha'])) {
+        if(isset($userArray['usuario']) && isset($userArray['senha']) && password_verify($senha, $userArray['senha'])) {
             $_SESSION['usuarioID'] = $userArray['id'];
             $_SESSION['usuarioN ome'] = $userArray['nome'];
 
