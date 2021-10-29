@@ -1,4 +1,3 @@
-
 <?php
     session_start();
     $raiz = "/i/senai-icatalogo-mysqli-alunos";
@@ -9,11 +8,14 @@
 <link href="<?=$raiz?>/componentes/header/header.css" rel="stylesheet" />
 <header class="header">
     <figure>    
-        <a href="<?=$raiz?>/produtos"><img src="<?=$raiz?>/imgs/logo.png"/></a>
+        <a href="<?=$raiz?>/produtos">
+            <img src="<?=$raiz?>/imgs/logo.png"/>
+        </a>
     </figure>
     <?php
         if(!isset($_SESSION["usuarioID"])) {
     ?>
+            <!-- User's navigation. -->
             <nav>
                 <ul>
                     <a id="menu-admin">Administrar</a>
@@ -33,6 +35,7 @@
     else 
         {
     ?>
+            <!-- ADM's navigation. -->
             <nav>
                 <ul>
                     <a id="menu-admin" onclick="logout()">Sair</a>
@@ -48,11 +51,7 @@
 
 <script lang="javascript">
     document.querySelector("#menu-admin").addEventListener("click", toggleLogin);
-
-    function logout() {
-        document.querySelector("#form-logout").submit();
-    }
-
+    
     function toggleLogin() {
         let containerLogin = document.querySelector("#container-login");
         let h1Form = document.querySelector("#container-login > h1");
@@ -72,5 +71,8 @@
         }
     }
 
-</script>
+    function logout() {
+        document.querySelector("#form-logout").submit();
+    }
 
+</script>
