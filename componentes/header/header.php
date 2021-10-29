@@ -1,11 +1,9 @@
 <?php
     session_start();
     $raiz = "/i/senai-icatalogo-mysqli-alunos";
-    // Variable session to set the root to all pages.
-    $_SESSION['root'] = $raiz;
 ?>
 
-<link href="<?=$raiz?>/componentes/header/header.css" rel="stylesheet" />
+<link href="<?=$raiz?>/componentes/header/header.css" rel="stylesheet"/>
 <header class="header">
     <figure>    
         <a href="<?=$raiz?>/produtos">
@@ -31,8 +29,7 @@
                 </form>
             </div>
     <?php
-        } 
-    else 
+        }  else 
         {
     ?>
             <!-- ADM's navigation. -->
