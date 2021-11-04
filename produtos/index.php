@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles-global.css" />
     <link rel="stylesheet" href="./produtos.css" />
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <title>Administrar Produtos</title>
 </head>
 <body>
