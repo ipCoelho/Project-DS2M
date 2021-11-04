@@ -5,7 +5,7 @@
 
     function realizarLogin($usuario, $senha, $conexao) {
         // mySQL.
-        $query = "SELECT * FROM tbl_administrador WHERE usuario = '$usuario' AND senha = '$senha';";
+        $query = "SELECT * FROM tbl_administrador WHERE usuario = '$usuario';";
         $sqlObject = mysqli_query($conexao, $query);
         $userArray = mysqli_fetch_array($sqlObject);
 
@@ -16,7 +16,12 @@
 
             header('location: ../../produtos/index.php');
         } else {
-            echo 'ALGO DEU ERRADO';
+            echo("
+                <script> 
+                    alert('Erro: Credenciais inválidas.'); 
+                    window.location.href = '../../produtos/index.php';
+                </script>
+            ");
         }
     }
 
@@ -28,6 +33,7 @@
             $senha_value = $_POST['senha'];
 
             realizarLogin($usuario_value, $senha_value, $conexao);
+           
             /* My Logic -> 
                 // mySQL.
                 $sql = "SELECT * FROM tbl_administrador WHERE usuario = '$usuario_value' AND senha = '$senha_value';";
@@ -41,8 +47,6 @@
                     echo("<script>alert('Autentication False.')</script>");
                 } */
         break;
-
-
 
         case 'logout':
             session_destroy();
